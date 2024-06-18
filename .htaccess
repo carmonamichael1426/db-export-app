@@ -1,0 +1,25 @@
+# Increase PHP file upload and post size limits
+php_value upload_max_filesize 90M
+php_value post_max_size 90M
+
+# Increase PHP memory limit and max execution time
+php_value memory_limit 2G
+php_value max_execution_time 300
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect all requests to index.html except for existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.html [L,QSA]
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|ini)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+

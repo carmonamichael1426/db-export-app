@@ -1,0 +1,45 @@
+body {
+   background-color: #f4f4f9;
+}
+
+/* Default styles for larger screens */
+.container {
+   max-width: 600px;
+   margin: 50px auto;
+   background: #fff;
+   padding: 20px;
+   border-radius: 5px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for tablets and smaller screens */
+@media (max-width: 768px) {
+   .container {
+      max-width: 90%;
+      margin-top: 20px;
+      padding: 15px;
+   }
+}
+
+/* Styles for mobile devices */
+@media (max-width: 480px) {
+   .container {
+      max-width: 95%;
+      margin-top: 10px;
+      padding: 10px;
+   }
+}
+
+h2 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.btn i {
+   margin-right: 8px;
+}
+
+.box-shadow-1 {
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
