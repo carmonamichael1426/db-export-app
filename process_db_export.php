@@ -1,6 +1,9 @@
 <?php
 
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Content-Type");
 date_default_timezone_set('Asia/Manila'); // Set the timezone to avoid warnings
 ini_set('memory_limit', '2G'); // Adjust memory limit as needed
 ini_set('max_execution_time', '300'); // Set to 300 seconds or adjust as needed

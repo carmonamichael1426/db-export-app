@@ -5,10 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
    const databaseSelect = document.getElementById('dbname');
    const spinner = document.getElementById('spinner');
 
+   // Determine the base URL dynamically
+   const protocol = window.location.protocol;
+   const host = window.location.host;
+   const pathArray = window.location.pathname.split('/');
+   const baseUrl = `${protocol}//${host}/${pathArray[1]}`;
+
+   // Append the specific PHP endpoint
+   const connectUrl = `${baseUrl}/process_db_export.php`;
+   const exportUrl = `${baseUrl}/process_db_export.php`;
+
    connectButton.addEventListener('click', () => {
       const formData = new FormData(document.getElementById('exportForm'));
 
-      fetch('process_db_export.php', {
+      fetch(connectUrl, {
          method: 'POST',
          body: formData,
       })
@@ -25,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                populateDatabaseOptions(data.databases);
                databaseListContainer.style.display = 'block';
                exportButton.disabled = false;
-            } else if (data.status === 'error') {
+            } else {
                Swal.fire({
                   title: 'Error!',
                   text: data.message,
@@ -53,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       spinner.style.display = 'inline-block'; // Show the spinner
 
-      fetch('process_db_export.php', {
+      fetch(exportUrl, {
          method: 'POST',
          body: formData,
       })
